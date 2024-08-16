@@ -7,7 +7,7 @@ app = FastAPI()
 
 app.title = 'tienda online'
 
-app.version = '1.1'
+app.version = '1.4'
 
 app.include_router(carrito_router)
 

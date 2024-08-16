@@ -2,7 +2,7 @@ from pydantic import BaseModel,Field
 from typing import Optional
 
 class producto(BaseModel):
-    id:int
+    id:Optional[int] = None
     nombre:str
     precio:float
     cantidad:Optional[int] = None
@@ -10,7 +10,6 @@ class producto(BaseModel):
     class Config:
         json_schema_extra = {
             'example':{
-                'id':1,
                 'nombre':'leche',
                 'precio':1.80,
                 'cantidad':2

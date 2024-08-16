@@ -2,7 +2,7 @@ from sqlalchemy import Column,Integer,String,Float
 from Config.database import Base
 
 class producto(Base):
-    tablename = 'productos'
+    __tablename__ = 'productos'
 
     id = Column(Integer,primary_key=True)
     nombre = Column(String)

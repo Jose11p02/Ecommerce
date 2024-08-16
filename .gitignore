@@ -259,4 +259,15 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+### Database ###
+*.accdb
+*.db
+*.dbf
+*.mdb
+*.pdb
+*.sqlite
+*.db-shm
+*.db-wal
+
+
 # End of https://www.toptal.com/developers/gitignore/api/python,windows,macos,linux,venv

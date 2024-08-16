@@ -6,7 +6,7 @@ class carritoServices():
         self.db = db
 
     def get_list(self):
-        result = self.db.query(productoModel).all
+        result = self.db.query(productoModel).all()
         return result
     
     def get_list_for_id(self,id):
