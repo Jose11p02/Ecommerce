@@ -1,7 +1,9 @@
 from models.productos import producto as productoModel
 from schemas.productos import producto
+from models.car import Car
+from schemas.car import car
 
-class carritoServices():
+class HomeServices():
     def __init__(self,db) -> None:
         self.db = db
 
@@ -9,8 +11,17 @@ class carritoServices():
         result = self.db.query(productoModel).all()
         return result
     
+    def add(self,car:car):
+        new_item = Car(**car.model_dump())
+        self.db.add(new_item)
+        self.db.commit()
+
     def get_list_for_id(self,id):
         result = self.db.query(productoModel).filter(productoModel.id == id).first()
+        return result
+    
+    def get_product_for_categoria(self,categoria):
+        result = self.db.query(productoModel).filter(productoModel.categoria == categoria).all()
         return result
     
     def add_product(self,Producto:producto):
@@ -26,5 +37,5 @@ class carritoServices():
         product = self.db.query(productoModel).filter(productoModel.id == id).first()
         product.nombre = data.nombre
         product.precio = data.precio
-        product.cantidad = data.cantidad
+        product.categoria = data.categoria
         self.db.commit()

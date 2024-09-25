@@ -1,17 +1,15 @@
 from pydantic import BaseModel,Field
 from typing import Optional
 
-class producto(BaseModel):
+class car(BaseModel):
     id:Optional[int] = None
-    nombre:str
-    precio:float
-    categoria:str
+    productoId:int
+    cantidad:int
 
     class Config:
         json_schema_extra = {
             'example':{
-                'nombre':'leche',
-                'precio':1.80,
-                'categoria':'comida'
+                'productoId': 2,
+                'cantidad': 1
             }
         }
