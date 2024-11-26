@@ -14,3 +14,7 @@ engine = create_engine(database_url)
 localSession = sessionmaker(autoflush=False,autocommit=False,bind=engine)
 
 Base = declarative_base()
+
+SECRETE_KEY = '7c22489a0742114a95c456d3e495639f4d96f192636f447ca59a7a93766d3e60'
+
+TOKEN_SCONDS_EXP = 1

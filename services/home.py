@@ -11,6 +11,10 @@ class HomeServices():
         result = self.db.query(productoModel).all()
         return result
     
+    def get_category(self):
+        result = self.db.query(productoModel.categoria).distinct().all()
+        return [categoria[0] for categoria in result]
+    
     def add(self,car:car):
         new_item = Car(**car.model_dump())
         self.db.add(new_item)
