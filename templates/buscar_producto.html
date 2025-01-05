@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Producto</title>
+</head>
+<body>
+    <h1>Buscar Producto</h1>
+    <button onclick="window.location.href='/presupuesto/lista'">Home</button>
+    <form action="/presupuesto/buscar" method="get">
+        <label for="nombre">Nombre del producto:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ nombre or '' }}" required>
+        <button type="submit">Buscar</button>
+    </form>
+    <h2>Resultados de la Búsqueda</h2>
+
+    {% if busqueda %}
+        {% if producto %}
+            <ul>
+                {% for p in producto %}
+                    <li>ID: {{ p.id }}, Nombre: {{ p.nombre }}, Precio: {{ p.precio }}$</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No se encontraron productos con el nombre "{{ nombre }}".</p>
+        {% endif %}
+    {% else %}
+        <p>Introduce un nombre para buscar productos.</p>
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+</body>
+</html>

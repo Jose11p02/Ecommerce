@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Producto</title>
+</head>
+<body>
+    <h1>Editar Producto</h1>
+    <form action="/presupuesto/editar/{{ producto.nombre }}" method="post">
+        <label for="nuevo_nombre">Nuevo Nombre:</label>
+        <input type="text" id="nuevo_nombre" name="nuevo_nombre" value="{{ producto.nombre }}" required>
+        <br>
+        <label for="nuevo_precio">Nuevo Precio:</label>
+        <input type="number" id="nuevo_precio" name="nuevo_precio" value="{{ producto.precio }}" step="0.01" required>
+        <br>        
+        <label for="nuevo_categoria">Nuevo categoria:</label>
+        <input type="text" id="nuevo_categoria" name="nuevo_categoria" value="{{ producto.categoria }}" required>
+        <br>
+        <button type="submit">Actualizar</button>
+    </form>
+</body>
+</html>

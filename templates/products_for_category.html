@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos por Categoría</title>
+</head>
+<body>
+    <h1>Buscar productos por categoría</h1>
+    <button onclick="window.location.href='/presupuesto/lista'">Home</button>
+    <!-- Formulario para escribir la categoría -->
+    <form action="/presupuesto/for_category" method="get">
+        <label for="category">Categoría:</label>
+        <input type="text" id="category" name="category" placeholder="Escribe la categoría" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if category %}
+        <h2>Resultados para la categoría: {{ category }}</h2>
+        <ul>
+            {% for product in products %}
+                <li>
+                    <strong>{{ product.nombre }}</strong> - {{ product.precio }}$
+                </li>
+            {% endfor %}
+        </ul>
+        {% if not products %}
+            <p>No hay productos disponibles en esta categoría.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

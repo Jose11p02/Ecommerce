@@ -20,9 +20,9 @@ class HomeServices():
         self.db.add(new_item)
         self.db.commit()
 
-    def get_list_for_id(self,id):
-        result = self.db.query(productoModel).filter(productoModel.id == id).first()
-        return result
+    def get_list_for_name(self,name):
+        result = self.db.query(productoModel).filter(productoModel.nombre == name).all()
+        return result if result else None
     
     def get_product_for_categoria(self,categoria):
         result = self.db.query(productoModel).filter(productoModel.categoria == categoria).all()
@@ -37,8 +37,8 @@ class HomeServices():
         self.db.delete(data)
         self.db.commit()
 
-    def update_product(self,id,data):
-        product = self.db.query(productoModel).filter(productoModel.id == id).first()
+    def update_product(self,nombre,data):
+        product = self.db.query(productoModel).filter(productoModel.nombre == nombre).first()
         product.nombre = data.nombre
         product.precio = data.precio
         product.categoria = data.categoria
